@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+bool binerysearch(int arr[],int s,int e, int key){
+      //base case
+         if (s>e)
+         return false;
+
+  //if mid is equal
+  int mid = (s+e)/2;
+
+  if (arr[mid] == key)
+    return true;
+
+  if (arr[mid] > key){
+    return binerysearch(arr,mid+1,e,key);
+  }
+  else{
+    return binerysearch(arr,s,mid-1,key);
+  }
+     }
+
+int main(){
+  int arr[5]={1,2,3,4,5};
+
+  int key=3;
+  int s =0;
+  int e = 4;
+  int ans = binerysearch(arr,s,e,key);
+  cout<<"present"<<ans<<endl;
+
+ return 0; 
+}
